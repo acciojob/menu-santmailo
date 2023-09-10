@@ -76,8 +76,10 @@ const dishes = [
       desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
     },
   ];
+
+  const root = document.getElementById("root");
   
-ReactDOM.render(<App dishes={dishes}/>, document.getElementById("root"));
+ReactDOM.render(<App dishes={dishes} />, root);
 
 
 
