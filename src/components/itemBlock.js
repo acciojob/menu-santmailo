@@ -1,4 +1,6 @@
 import React from 'react';
+import '../styles/App.css'
+
 
 const ItemBlock = ({item}) => {
     return (
@@ -7,7 +9,7 @@ const ItemBlock = ({item}) => {
                 <img src={item.img} />
             </div>
             <div className='content-block'>
-                <div>
+                <div className='title-block'>
                     <p className='title'>{item.title}</p>
                     <p className='price'>{item.price}</p>
                 </div>

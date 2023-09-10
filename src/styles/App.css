@@ -1,3 +1,7 @@
+*{
+    font-family: sans-serif ;
+}
+
 h1 {
     color: #27aedb;
     text-align: center;
@@ -10,3 +14,76 @@ button{
     justify-content: center;
     align-items: center;
 }
+
+.button-blocks{
+    width: 20%;
+    margin: auto;
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+}
+
+button{
+    display: block;
+    font-size: large;
+    border: none;
+    color: rgb(255, 179, 37);
+    background-color: transparent;
+}
+
+button:hover{
+    cursor: pointer;
+    color: yellowgreen;
+}
+
+.items-block{
+    width: 80%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap:20px;
+}
+
+.item-block{
+    display: flex;
+    border: 1px solid black;
+}
+
+.img-block{
+    width: 30%;
+    border: 3px solid orange;
+}
+
+.img-block>img{
+    width: 100%;
+    height: auto;
+}
+
+.content-block{
+    width: 55%;
+    margin: auto;
+}
+
+.title-block{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px dashed;
+}
+
+.title,.price{
+    font-weight: bold;
+}
+
+.title{
+
+}
+
+.price{
+
+}
+
+.desc{
+    color: rgb(155, 148, 148);
+}
+
+
