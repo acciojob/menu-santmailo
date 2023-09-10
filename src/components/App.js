@@ -47,13 +47,13 @@ const App = ({dishes}) => {
     }
 
     return (
-        <div className='app'>
+        <div id='main'>
             <h1>Our Menu</h1>
             <div className='button-blocks'>
                 <button onClick={handleClick} value="all">All</button>
-                <button onClick={handleClick} value="breakfast">Breakfast</button>
-                <button onClick={handleClick} value="lunch">Lunch</button>
-                <button onClick={handleClick} value="shakes">Shakes  </button>
+                <button id="filter-btn-1" onClick={handleClick} value="breakfast">Breakfast</button>
+                <button id="filter-btn-2"onClick={handleClick} value="lunch">Lunch</button>
+                <button id="filter-btn-3" onClick={handleClick} value="shakes">Shakes  </button>
             </div>
 
             <div className='items-block'>
