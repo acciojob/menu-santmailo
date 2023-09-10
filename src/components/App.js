@@ -1,12 +1,17 @@
 import React,{useState} from 'react';
+import ItemBlock from './itemBlock';
 
 const App = ({dishes}) => {
-    // const 
+    const [menuItem, setMenuItem] = useState(dishes);
+    const items = menuItem.map((item)=> {
+        return <ItemBlock key={item.id} item = {item} alt="image not fount 404"/>
+    });
 
 
     return (
         <div>
-            <h1>This is a component</h1>
+            <h1>Our Menu</h1>
+            {items}
         </div>
     )
 }
