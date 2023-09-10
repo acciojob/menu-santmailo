@@ -51,9 +51,9 @@ const App = ({dishes}) => {
             <h1>Our Menu</h1>
             <div className='button-blocks'>
                 <button onClick={handleClick} value="all">All</button>
-                <button id="filter-btn-1" onClick={handleClick} value="breakfast">Breakfast</button>
-                <button id="filter-btn-2"onClick={handleClick} value="lunch">Lunch</button>
-                <button id="filter-btn-3" onClick={handleClick} value="shakes">Shakes  </button>
+                <button id="filter-btn-1" onClick={handleClick} value="breakfast" data-test-id="menu-item-breakfast">Breakfast</button>
+                <button id="filter-btn-2"onClick={handleClick} value="lunch" data-test-id="menu-item-lunch">Lunch</button>
+                <button id="filter-btn-3" onClick={handleClick} value="shakes" data-test-id="menu-item-shakes">Shakes  </button>
             </div>
 
             <div className='items-block'>
