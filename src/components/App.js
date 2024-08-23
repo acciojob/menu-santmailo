@@ -52,7 +52,7 @@ const dishes = [
   },
   {
     id: 7,
-    title: "Bacon Overflow",
+    title: "bacon overflow",
     category: "breakfast",
     price: 8.99,
     img: "./images/item-7.jpeg",
@@ -60,7 +60,7 @@ const dishes = [
   },
   {
     id: 8,
-    title: "merican classic",
+    title: "american classic",
     category: "lunch",
     price: 12.99,
     img: "./images/item-8.jpeg",
@@ -117,36 +117,33 @@ const App = () => {
     <div id="main">
       <h1>Our Menu</h1>
       <div className="button-blocks">
-        <a href="#" onClick={handleClick} value="all">
+        <button onClick={handleClick} value="all" data-test-id="menu-item-all">
           All
-        </a>
-        <a
-          href="#"
+        </button>
+        <button
           id="filter-btn-1"
           onClick={handleClick}
           value="breakfast"
           data-test-id="menu-item-breakfast"
         >
           Breakfast
-        </a>
-        <a
-          href="#"
+        </button>
+        <button
           id="filter-btn-2"
           onClick={handleClick}
           value="lunch"
           data-test-id="menu-item-lunch"
         >
           Lunch
-        </a>
-        <a
-          href="#"
+        </button>
+        <button
           id="filter-btn-3"
           onClick={handleClick}
           value="shakes"
           data-test-id="menu-item-shakes"
         >
           Shakes{" "}
-        </a>
+        </button>
       </div>
 
       <div className="items-block">{items}</div>
