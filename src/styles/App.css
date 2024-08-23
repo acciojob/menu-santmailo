@@ -1,89 +1,85 @@
-*{
-    font-family: sans-serif ;
+* {
+  font-family: sans-serif;
 }
 
 h1 {
-    color: #27aedb;
-    text-align: center;
-    }
-    
-
-button{
-    color: #27aedb;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
+  color: #27aedb;
+  text-align: center;
 }
 
-.button-blocks{
-    width: 20%;
-    margin: auto;
-    border: 1px solid black;
-    display: flex;
-    justify-content: space-between;
+button {
+  color: #27aedb;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
 }
 
-button{
-    display: block;
-    font-size: large;
-    border: none;
-    color: rgb(255, 179, 37);
-    background-color: transparent;
+.button-blocks {
+  width: 20%;
+  margin: 40px auto;
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
 }
 
-button:hover{
-    cursor: pointer;
-    color: yellowgreen;
+button {
+  display: block;
+  font-size: large;
+  border: none;
+  color: rgb(255, 179, 37);
+  background-color: transparent;
 }
 
-.items-block{
-    width: 80%;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap:20px;
+a:hover {
+  cursor: pointer;
+  color: yellowgreen;
 }
 
-.item-block{
-    display: flex;
-    border: 1px solid black;
+.items-block {
+  width: 80%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 }
 
-.img-block{
-    width: 30%;
-    border: 3px solid orange;
+.item-block {
+  display: flex;
+  border: 1px solid black;
 }
 
-.img-block>img{
-    width: 100%;
-    height: auto;
+.img-block {
+  width: 30%;
+  border: 3px solid orange;
 }
 
-.content-block{
-    width: 55%;
-    margin: auto;
+.img-block > img {
+  width: 100%;
+  height: auto;
 }
 
-.title-block{
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px dashed;
+.content-block {
+  width: 55%;
+  margin: auto;
 }
 
-.title,.price{
-    font-weight: bold;
+.title-block {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dashed;
 }
 
-.title{
-
+.title,
+.price {
+  font-weight: bold;
 }
 
-.price{
-
+.title {
 }
 
-.desc{
-    color: rgb(155, 148, 148);
+.price {
 }
 
-
+.desc {
+  color: rgb(155, 148, 148);
+}
