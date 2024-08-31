@@ -79,25 +79,25 @@ const dishes = [
 const menu = [
   {
     valId: 0,
-    id: "#menu-item-all",
+    id: "menu-item-all",
     value: "All",
     dataTestId: "menu-item-all",
   },
   {
     valId: 1,
-    id: "#filter-btn-1",
+    id: "filter-btn-1",
     value: "Breakfast",
     dataTestId: "menu-item-breakfast",
   },
   {
     valId: 2,
-    id: "#filter-btn-2",
+    id: "filter-btn-2",
     value: "Lunch",
     dataTestId: "menu-item-lunch",
   },
   {
     valId: 3,
-    id: "#filter-btn-3",
+    id: "filter-btn-3",
     value: "Shakes",
     dataTestId: "menu-item-shakes",
   },
@@ -163,6 +163,7 @@ const App = () => {
         {btnMenu.map((item) => {
           return (
             <button
+              id={item.id}
               onClick={handleClick}
               value={item.value}
               data-test-id={item.dataTestId}
