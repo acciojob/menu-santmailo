@@ -90,24 +90,33 @@ const App = () => {
   const handleClick = (e) => {
     const val = e.target.value;
     if (val == "breakfast") {
+      document.getElementById("filter-btn-2").style.display = "none";
+      document.getElementById("filter-btn-3").style.display = "none";
       const tempitems = dishes.filter((item) => {
         return item.category === "breakfast";
       });
       handleMenuChange(tempitems);
       return;
     } else if (val == "lunch") {
+      document.getElementById("filter-btn-1").style.display = "none";
+      document.getElementById("filter-btn-3").style.display = "none";
       const tempitems = dishes.filter((item) => {
         return item.category === "lunch";
       });
       handleMenuChange(tempitems);
       return;
     } else if (val == "shakes") {
+      document.getElementById("filter-btn-1").style.display = "none";
+      document.getElementById("filter-btn-2").style.display = "none";
       const tempitems = dishes.filter((item) => {
         return item.category === "shakes";
       });
       handleMenuChange(tempitems);
       return;
     } else {
+      document.getElementById("filter-btn-1").style.display = "block";
+      document.getElementById("filter-btn-2").style.display = "block";
+      document.getElementById("filter-btn-3").style.display = "block";
       handleMenuChange(dishes);
       return;
     }
