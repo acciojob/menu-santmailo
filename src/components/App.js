@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import ItemBlock from "./itemBlock";
+import CompA from "./CompA.js";
 
-const dishes = [
+const data = [
   {
     id: 1,
     title: "buttermilk pancakes",
@@ -76,105 +76,81 @@ const dishes = [
   },
 ];
 
-const menu = [
-  {
-    valId: 0,
-    id: "menu-item-all",
-    value: "All",
-    dataTestId: "menu-item-all",
-  },
-  {
-    valId: 1,
-    id: "filter-btn-1",
-    value: "Breakfast",
-    dataTestId: "menu-item-breakfast",
-  },
-  {
-    valId: 2,
-    id: "filter-btn-2",
-    value: "Lunch",
-    dataTestId: "menu-item-lunch",
-  },
-  {
-    valId: 3,
-    id: "filter-btn-3",
-    value: "Shakes",
-    dataTestId: "menu-item-shakes",
-  },
-];
-
 const App = () => {
-  const [menuItem, setMenuItem] = useState(dishes);
-  const [btnMenu, setBtnMenu] = useState(menu);
-
-  const items = menuItem.map((item) => {
-    return <ItemBlock key={item.id} item={item} />;
-  });
-
-  const handleMenuChange = (items) => {
-    setMenuItem(items);
-  };
-
-  const handleClick = (e) => {
-    const val = e.target.value;
-    if (val == "Breakfast") {
-      const tempArr = menu.filter((item) => {
-        return item.valId == 1 || item.valId == 0;
-      });
-      setBtnMenu(tempArr);
-      const tempitems = dishes.filter((item) => {
-        return item.category === "breakfast";
-      });
-      handleMenuChange(tempitems);
-      return;
-    } else if (val == "Lunch") {
-      const tempArr = menu.filter((item) => {
-        return item.valId == 2 || item.valId == 0;
-      });
-
-      setBtnMenu(tempArr);
-      const tempitems = dishes.filter((item) => {
-        return item.category === "lunch";
-      });
-      handleMenuChange(tempitems);
-      return;
-    } else if (val == "Shakes") {
-      const tempArr = menu.filter((item) => {
-        return item.valId == 3 || item.valId == 0;
-      });
-
-      setBtnMenu(tempArr);
-      const tempitems = dishes.filter((item) => {
-        return item.category === "shakes";
-      });
-      handleMenuChange(tempitems);
-      return;
-    } else {
-      setBtnMenu(menu);
-      handleMenuChange(dishes);
-      return;
-    }
-  };
+  const [items, setItems] = useState(data);
+  const [filteredItems, setFilteredItems] = useState(data);
 
   return (
     <div id="main">
       <h1>Our Menu</h1>
-      <div className="button-blocks">
-        {btnMenu.map((item) => {
-          return (
-            <button
-              id={item.id}
-              onClick={handleClick}
-              value={item.value}
-              data-test-id={item.dataTestId}
-            >
-              {item.value}
-            </button>
-          );
-        })}
+
+      <div>
+        <button
+          onClick={() => {
+            const cat = "all";
+
+            // const nArr = items.filter((item) => {
+            //     return item.category == cat
+            // })
+
+            setFilteredItems(data);
+            // console.log(nArr)
+          }}
+        >
+          All
+        </button>
+        <button
+          id="filter-btn-1"
+          onClick={() => {
+            const cat = "breakfast";
+
+            const nArr = items.filter((item) => {
+              return item.category == cat;
+            });
+
+            setFilteredItems(nArr);
+            // console.log(nArr)
+          }}
+        >
+          Breakfast
+        </button>
+        <button
+          id="filter-btn-2"
+          onClick={() => {
+            const cat = "lunch";
+
+            const nArr = items.filter((item) => {
+              return item.category == cat;
+            });
+
+            setFilteredItems(nArr);
+            // console.log(nArr)
+          }}
+        >
+          Lunch
+        </button>
+        <button
+          id="filter-btn-3"
+          onClick={() => {
+            const cat = "shakes";
+
+            const nArr = items.filter((item) => {
+              return item.category == cat;
+            });
+
+            setFilteredItems(nArr);
+            // console.log(nArr)
+          }}
+        >
+          Shakes
+        </button>
       </div>
 
-      <div className="items-block">{items}</div>
+      <div style={{ display: "flex", flexWrap: "wrap" }}>
+        {filteredItems.map((item) => {
+          return <CompA item={item} />;
+        })}
+      </div>
     </div>
   );
 };
