@@ -76,8 +76,36 @@ const dishes = [
   },
 ];
 
+const menu = [
+  {
+    valId: 0,
+    id: "#menu-item-all",
+    value: "All",
+    dataTestId: "menu-item-all",
+  },
+  {
+    valId: 1,
+    id: "#filter-btn-1",
+    value: "Breakfast",
+    dataTestId: "menu-item-breakfast",
+  },
+  {
+    valId: 2,
+    id: "#filter-btn-2",
+    value: "Lunch",
+    dataTestId: "menu-item-lunch",
+  },
+  {
+    valId: 3,
+    id: "#filter-btn-3",
+    value: "Shakes",
+    dataTestId: "menu-item-shakes",
+  },
+];
+
 const App = () => {
   const [menuItem, setMenuItem] = useState(dishes);
+  const [btnMenu, setBtnMenu] = useState(menu);
 
   const items = menuItem.map((item) => {
     return <ItemBlock key={item.id} item={item} />;
@@ -89,34 +117,40 @@ const App = () => {
 
   const handleClick = (e) => {
     const val = e.target.value;
-    if (val == "breakfast") {
-      document.getElementById("filter-btn-2").remove();
-      document.getElementById("filter-btn-3").remove();
+    if (val == "Breakfast") {
+      const tempArr = menu.filter((item) => {
+        return item.valId == 1 || item.valId == 0;
+      });
+      setBtnMenu(tempArr);
       const tempitems = dishes.filter((item) => {
         return item.category === "breakfast";
       });
       handleMenuChange(tempitems);
       return;
-    } else if (val == "lunch") {
-      document.getElementById("filter-btn-1").remove();
-      document.getElementById("filter-btn-3").remove();
+    } else if (val == "Lunch") {
+      const tempArr = menu.filter((item) => {
+        return item.valId == 2 || item.valId == 0;
+      });
+
+      setBtnMenu(tempArr);
       const tempitems = dishes.filter((item) => {
         return item.category === "lunch";
       });
       handleMenuChange(tempitems);
       return;
-    } else if (val == "shakes") {
-      document.getElementById("filter-btn-1").remove();
-      document.getElementById("filter-btn-2").remove();
+    } else if (val == "Shakes") {
+      const tempArr = menu.filter((item) => {
+        return item.valId == 3 || item.valId == 0;
+      });
+
+      setBtnMenu(tempArr);
       const tempitems = dishes.filter((item) => {
         return item.category === "shakes";
       });
       handleMenuChange(tempitems);
       return;
     } else {
-      document.getElementById("filter-btn-1").style.display = "block";
-      document.getElementById("filter-btn-2").style.display = "block";
-      document.getElementById("filter-btn-3").style.display = "block";
+      setBtnMenu(menu);
       handleMenuChange(dishes);
       return;
     }
@@ -126,33 +160,17 @@ const App = () => {
     <div id="main">
       <h1>Our Menu</h1>
       <div className="button-blocks">
-        <button onClick={handleClick} value="all" data-test-id="menu-item-all">
-          All
-        </button>
-        <button
-          id="filter-btn-1"
-          onClick={handleClick}
-          value="breakfast"
-          data-test-id="menu-item-breakfast"
-        >
-          Breakfast
-        </button>
-        <button
-          id="filter-btn-2"
-          onClick={handleClick}
-          value="lunch"
-          data-test-id="menu-item-lunch"
-        >
-          Lunch
-        </button>
-        <button
-          id="filter-btn-3"
-          onClick={handleClick}
-          value="shakes"
-          data-test-id="menu-item-shakes"
-        >
-          Shakes{" "}
-        </button>
+        {btnMenu.map((item) => {
+          return (
+            <button
+              onClick={handleClick}
+              value={item.value}
+              data-test-id={item.dataTestId}
+            >
+              {item.value}
+            </button>
+          );
+        })}
       </div>
 
       <div className="items-block">{items}</div>
